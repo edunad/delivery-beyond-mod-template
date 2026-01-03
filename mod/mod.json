@@ -1,0 +1,8 @@
+{
+    "title": "My First Mod",
+    "description": "A simple example mod for Delivery & Beyond",
+    "type": "SHARED",
+    "author": "YourName",
+    "version": "1.0.0",
+    "preview": "./thumbnail.png"
+}

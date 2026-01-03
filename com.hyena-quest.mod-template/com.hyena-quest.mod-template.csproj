@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <RootNamespace>com.hyena_quest.mod_template</RootNamespace>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>latest</LangVersion>
+		<RestoreAdditionalProjectSources>
+		  https://api.nuget.org/v3/index.json;
+		  https://nuget.bepinex.dev/v3/index.json;
+		  https://nuget.samboy.dev/v3/index.json
+		</RestoreAdditionalProjectSources>
+    </PropertyGroup>
+	
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+		<PackageReference Include="BepInEx.Core" Version="5.*" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+		<PackageReference Include="UnityEngine.Modules" Version="6000.3.2" IncludeAssets="compile" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2"
+		  PrivateAssets="all" />
+	</ItemGroup>
+	
+	<PropertyGroup>
+	  <DeliveryBeyondDir>$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\Software\HyenaQuest\delivery-beyond', 'InstallPath', null, RegistryView.Registry32))\</DeliveryBeyondDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Reference Include="HyenaQuest.Core">
+		<HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\HyenaQuest.Core.dll</HintPath>
+		<Private>False</Private>
+	  </Reference>
+	  <Reference Include="HyenaQuest.Gameplay">
+		<HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\HyenaQuest.Gameplay.dll</HintPath>
+		<Private>False</Private>
+	  </Reference>
+	  <Reference Include="HyenaQuest.MainMenu">
+		<HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\HyenaQuest.MainMenu.dll</HintPath>
+		<Private>False</Private>
+	  </Reference>
+	  <Reference Include="Unity.Netcode.Runtime">
+		<HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
+		<Private>False</Private>
+	  </Reference>
+	</ItemGroup>
+</Project>
