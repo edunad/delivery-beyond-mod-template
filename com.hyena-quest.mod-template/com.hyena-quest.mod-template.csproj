@@ -46,6 +46,10 @@
 		<HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\HyenaQuest.MainMenu.dll</HintPath>
 		<Private>False</Private>
 	  </Reference>
+	  <Reference Include="HyenaQuest.SDK">
+        <HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\HyenaQuest.SDK.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
 	  <Reference Include="Unity.Netcode.Runtime">
 		<HintPath>$(DeliveryBeyondDir)delivery-beyond_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
 		<Private>False</Private>
